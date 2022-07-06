@@ -1,30 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Navbar />
   <router-view/>
 </template>
 
+<script>
+import Navbar from './components/TheNav.vue'
+export default{
+  components:{
+    Navbar,
+  }
+}
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+ font-family: 'Public Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #fff;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
 </style>

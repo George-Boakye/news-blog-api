@@ -1,14 +1,14 @@
 <template>
   <header v-for="header in heading" :key="header">
-  <div class="img-cover">
-    <figure class="hero-img"><img :src="header.urlToImage" alt=""></figure>
+  <div class="img-cover" @click="this.$router.push({name:'NewsPage',params:{title:header.title,id:this.$route.name}})">
+    <figure class="hero-img" ><img :src="header.urlToImage" alt=""></figure>
   </div>
   <div class="purple">
     <h1>{{header.title}}</h1>
     <p class="header-p">{{longDate(header.publishedAt)}}</p>
     <div>
       <figure></figure>
-      <p class="header-p">Author: {{header.author}}</p>
+      <p class="header-p">{{header.author}}</p>
     </div>
   </div>
 </header>
@@ -24,12 +24,11 @@ export default {
         let date = new Date(newDate);
         const month = date.toLocaleString('default', { month: 'long' });
         const day = date.toLocaleString('default', { weekday: 'long' });
-
-        // (date.getMonth()+1)
        return month + ' '+date.getDate()+', ' +date.getFullYear() ;
       }
-    }}
-}
+    },
+   },
+    }
 </script>
 
 <style scoped>
@@ -39,7 +38,7 @@ h1{
   }
   h2{
     color: #000;
-    width:264px;
+    width:16.5rem;
     font-weight: 700;
 font-size: 18px;
   }
@@ -54,14 +53,14 @@ font-size: 18px;
 .purple{
   padding: 9.25rem 0 3.3125rem 14.8125rem;
   background-color:  #6B0B5B;
-  margin-top: 369px;
+  margin-top: 430px;
   text-align: left;
 }
 .hero-img{
-  height: 400px;
+  /* height: 400px; */
   width:966px;
   position: absolute;
-  top: 128px;
+  top: 148px;
   left: 237px;
    /* top: 228px; */
   /* object-fit: contain; */
@@ -69,18 +68,42 @@ font-size: 18px;
  
   border-radius: 8px;
 }
-/* .img-cover{
-position: relative;
+.img-cover{
+  cursor: pointer;
+/* position: relative;
 margin: 0 auto;
-height: 400px;
-  width:966px;
-} */
+height: 500px;
+  width:966px; */
+} 
 .hero-img img{
 /*     
   width: 100%; */
-   height: 400px;
-  width:966px;
+   /* height: 400px;
+  width:966px; */
+   width: 100%;
+    height: 500px;
   object-fit: fill;
 border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .purple{
+     padding: 20px;
+     margin-top:0;
+  }
+  .hero-img{
+    margin-top: 10px;
+    width: 100%;
+    height: 150px;
+    position: static;
+    padding: 20px;
+  }
+  .hero-img img{
+    height: fit-content;
+  }
+  h1,h2{
+    width: 100%;
+    font-size: 1.25rem;
+  }
 }
 </style>

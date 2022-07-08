@@ -4,10 +4,10 @@
         <img src="@/assets/polygon.svg" alt="">
     </figure>
     <div class="links">
-    <router-link :to="{name:'Home'}">Global</router-link>
-    <router-link :to="{name:'Technology'}">Technology</router-link>
-    <router-link :to="{name:'Business'}">Business</router-link>
-    <router-link :to="{name:'Health'}">Health</router-link>
+    <router-link :to="{name:'global'}">Global</router-link>
+    <router-link :to="{name:'technology', params:{id:'technology'}}">Technology</router-link>
+    <router-link :to="{name:'business', params:{id:'business'}}">Business</router-link>
+    <router-link :to="{name:'health', params:{id:'health'}}">Health</router-link>
     </div>
     <div class="menu">
     <p>Menu</p>
@@ -43,6 +43,8 @@ a{
 }
 .router-link-active{
     color:  #6B0B5B;
+    font-size: 20px;
+    font-weight: bold;
 }
 .menu{
     display:flex;
@@ -53,5 +55,24 @@ a{
 }
 p{
     color:#000;
+}
+
+@media screen and (max-width: 600px) {
+    nav{
+    padding: 20px;
+   display: block;
+    }
+    a{
+        display: block;
+        margin-right: 0;
+    }
+    .links{
+        text-align: center;
+    }
+    .menu{
+        position: absolute;
+        right:20px;
+        top:20px;
+    }
 }
 </style>
